@@ -38,6 +38,16 @@ class site {
         ensure  => 'installed',
         require => Package['php5', 'apache2'];
     }
+    exec {'enable-mod_rewrite':
+        path    => '/usr/sbin',
+        command => 'a2enmod rewrite',
+        require => Package['apache2'];
+    }
+    exec {'restart-apache':
+        path    => '/bin:/usr/bin',
+        command => 'service apache2 restart',
+        require => Exec['enable-mod_rewrite'];
+    }
     exec {'install-composer':
         path    => '/bin:/usr/bin',
         command => 'curl -sS https://getcomposer.org/installer | php && /bin/mv composer.phar /usr/local/bin/composer',
