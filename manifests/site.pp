@@ -53,6 +53,10 @@ class site {
         command => 'curl -sS https://getcomposer.org/installer | php && /bin/mv composer.phar /usr/local/bin/composer',
         require => Package['curl', 'php5-cli'];
     }
+    package {'ruby-compass':
+        ensure  => installed,
+        require => Exec['update-apt'];
+    }
 }
 
 include site
