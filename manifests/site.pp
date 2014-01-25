@@ -1,7 +1,12 @@
 class site {
+    exec {'add-wheezy-backports':
+        path => '/bin:/usr/bin',
+        command => 'echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list'
+    }
     exec {'update-apt':
         path    => '/bin:/usr/bin',
         command => 'apt-get update',
+        require => Exec['add-wheezy-backports'];
     }
     package {'curl':
         ensure  => 'installed',
@@ -55,6 +60,10 @@ class site {
     }
     package {'ruby-compass':
         ensure  => installed,
+        require => Exec['update-apt'];
+    }
+    package {'nodejs':
+        ensure => installed,
         require => Exec['update-apt'];
     }
 }
