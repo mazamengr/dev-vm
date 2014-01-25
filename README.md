@@ -35,6 +35,18 @@ git clone git@github.com:mazamengr/dev-vm.git .
 
 *Note: the ( . ) period character at the end of the line will force the git repo to be cloned in your current directory. Make sure that you are in the correct folder*
 
+### Mapping a local folder into the Vagrant VM
+
+By default the Vagrant VM maps to your /Users/user-name/Sites directory. If you do not have this directory, you should create it first as it will cause `vagrant up` to fail and the VM will not start.
+
+You **MUST** at least change this in the `Vagrantfile` to your **user-name** as it is currently set to mine. Open the `Vagrantfile` in your favorite editor and change the path in the following line:
+
+```
+config.vm.synced_folder "/Users/waqas/Sites", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
+```
+
+to a folder on your local system. It doesn ot have to be your ~/Sites folder if you wish.
+
 Once the repo has been cloned simply bring up the VM by running:
 
 ```
