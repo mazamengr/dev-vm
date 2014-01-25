@@ -17,7 +17,7 @@ This Vagrant VM is desgined for PHP development. It provides a LAMP stack with A
 - Apache 2.2.22
 - MySQL 5.5.33
 - PHP 5.4.4-14
-- Curl 
+- Curl u
 - Git 1.7.10
 - Composer 
 - Sass 3.1.19
@@ -53,7 +53,7 @@ Once the repo has been cloned simply bring up the VM by running:
 vagrant up
 ```
 
-*Note: this may take a while as the first time the VM is > upped > it has to provision all the tools such as Apache, etc. If you don't understand what all these terms mean, don't worry. The VM will be up and running soon enough.*
+*Note: this may take a while as the first time the VM is "upped" it has to provision all the tools such as Apache, etc. If you don't understand what all these terms mean, don't worry. The VM will be up and running soon enough.*
 
 Once the output has completed and you're returned back to the command prompt, the VM should be running.
 
